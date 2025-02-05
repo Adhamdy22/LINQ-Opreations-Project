@@ -1,0 +1,331 @@
+﻿// See https://aka.ms/new-console-template for more information
+//Console.WriteLine("Hello, World!");
+
+//var x = "ahmed";
+
+//if (x!=null)
+//{
+
+//}
+
+//x="mazen";
+
+
+
+using Data;
+using Data.Models.Customers;
+using Data.ViewModels;
+using LINQ_Course.Extensions;
+using System.Linq;
+
+
+namespace Home
+{
+    public class Program
+    {
+
+        public static bool checkcustomer(Customer customer)
+        {
+            if (customer != null && customer.age>30 && customer.isActive)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static void Main(string[] args)
+        {
+            //var ahmedlist = Filter.GetAhmed(Database.GetCustomers());
+
+
+            // program with extension method
+            #region
+            //Console.WriteLine("Enter The Name You Search About");
+
+            //var inputname = Console.ReadLine();
+
+            //if (inputname == null || inputname=="")
+            //{
+
+            //    Console.WriteLine("invalid Name");
+
+            //}
+
+            //Console.WriteLine("Enter The Age You Search About");
+
+            //var age = int.Parse(Console.ReadLine());
+
+            //if(age<=0)
+            //{
+            //    Console.WriteLine("invalid age");
+
+            //}
+
+
+
+            //else
+            //{
+            //    var nameslist = Database.GetCustomers().GetName(inputname,age);
+
+            //    if (nameslist!=null && nameslist.Any())
+            //    {
+
+            //        foreach (var ahmed in nameslist)
+            //        {
+            //            Console.WriteLine($"name : {ahmed.name} , age : {ahmed.age} , telephone: {ahmed.telephone}");
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("No Person Found With This Name");
+            //    }
+            //}
+            #endregion
+
+
+
+
+            // without extension method
+            #region
+            //var nameslist = Filter.GetAhmed();
+
+            //if (nameslist!=null && nameslist.Any())
+            //{
+
+            //    foreach (var ahmed in nameslist)
+            //    {
+            //        Console.WriteLine($"name : {ahmed.name} , age : {ahmed.age} , telephone: {ahmed.telephone}");
+            //    }
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No Person Found With This Name");
+            //}
+
+            #endregion
+
+
+
+
+
+
+
+            // where linq
+            #region
+            //var ahmedlist = Database.GetCustomers().Where(w=>w.name=="ahmed");
+
+
+            //foreach(var ah in ahmedlist)
+            //{
+            //    Console.WriteLine($"name : {ah.name} , age : {ah.age} , telephone: {ah.telephone}");
+            //}
+            #endregion
+
+
+            //with function and extension method
+            #region
+            //var customers = Database.GetCustomers().GetData(checkcustomer);
+
+
+            //foreach (var customer in customers) {
+
+            //    Console.WriteLine($"name : {customer.name} , age : {customer.age} , telephone: {customer.telephone}");
+
+            //}
+            #endregion
+
+
+            // with lamda expression
+            #region
+            //var customers = Database.GetCustomers().GetData(c=>c!=null&&c.age>30&&c.isActive);
+
+
+            //foreach (var customer in customers)
+            //{
+
+            //    Console.WriteLine($"name : {customer.name} , age : {customer.age} , telephone: {customer.telephone}");
+
+            //}
+
+            #endregion
+
+
+
+            // IEnumerable Syntax
+            #region
+            //List<int> myList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //List<string> stringList = new List<string>
+            // { "ahmed mohamady", "mohamed ahmed", "mo salah", "sayd ahmed" };
+
+
+
+            ////var result = myList.Where(l => l>6).ToList();
+
+            ////foreach (var item in result) { 
+            ////    Console.WriteLine(item);
+            ////}
+
+            //var stringresult = stringList.Where(s=>s.Contains("ahmed"));
+
+            ////using tolist() is to make save the data of list in memory and not to be edited or deleted from it 
+
+
+            //stringList.Remove("mohamed ahmed");
+
+            //stringList.AddRange(new string[] { "saeed salah", "ahmed morad", "ahmed ahmed" });
+
+
+
+            //foreach (var item in stringresult)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+
+            // Query Syntax
+            #region
+            //    var result = from l in myList
+            //             where l >7
+            //             select l;
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            //var stringresult = from l in stringList
+            //                   where l.Contains("s")
+            //                   select l;
+
+            //foreach (var item in stringresult)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+
+
+            //select method
+
+            #region
+
+            //var customers = Database.GetCustomers().Select(
+            //    w => new
+            //    {
+            //        customer_name=w.name,
+            //        customer_age=w.age,
+            //        customer_phone=w.telephone
+            //    }
+            //    ).Where(a=>a.customer_age>=30).ToList();
+
+            //var customers = Database.GetCustomers().Where(a => a.age>=30).Select(
+            //    w => new
+            //    {
+            //        customer_name = w.name,
+            //        customer_phone = w.telephone
+            //    }
+            //    ).ToList();
+
+            //indexed where 
+            //var customers = Database.GetCustomers().Where((a,i) => a.age>=30&&i>=3).Select(
+            //    w => new CustomerViewModel
+            //    {
+            //        customer_name = w.name,
+            //        customer_phone = w.telephone
+            //    }
+            //    ).ToList();
+
+
+            //var customers = from customer in Database.GetCustomers()
+            //                where customer.age > 30
+            //                select new CustomerViewModel
+            //                {
+            //                    customer_name = customer.name,
+            //                    customer_phone = customer.telephone
+            //                };
+
+
+            //var customers = from customer in Database.GetCustomers()
+            //                select new
+            //                {
+            //                    customer_name = customer.name,
+            //                    customer_phone = customer.telephone,
+            //                    customer_age = customer.age,
+            //                }
+            //                into c
+            //                where c.customer_age>30
+            //                select c;
+
+
+
+
+
+
+
+
+            //foreach (var customer in customers)
+            //{
+            //    Console.WriteLine(customer);
+            //}
+
+            #endregion
+
+
+            // ordering queries
+
+            #region
+
+            //var customers = Database.GetCustomers().OrderByDescending(x => x.joinDate).ThenBy(x => x.id);
+
+            //var customers = from o in Database.GetCustomers()
+            //                orderby o.joinDate descending, o.id ascending
+            //                select o;
+
+
+            //foreach (var customer in customers)
+            //{
+            //    Console.WriteLine(customer.joinDate+"  "+customer.id+"  "+customer.name+"    "+customer.age);
+            //}
+
+            #endregion
+
+
+            // LINQ Immediate execution methods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+    
+}
