@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.Models.Customers
 {
-    public class Customer
+    public class Customer:IComparable<Customer>
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -16,5 +16,10 @@ namespace Data.Models.Customers
         public int categoryId { get; set; }
         public bool isActive { get; set; }
         public DateTime joinDate { get; set; }
+
+        public int CompareTo(Customer? other)
+        {
+            return this.age;
+        }
     }
 }

@@ -212,7 +212,6 @@ namespace Home
 
 
             //select method
-
             #region
 
             //var customers = Database.GetCustomers().Select(
@@ -278,7 +277,6 @@ namespace Home
 
 
             // ordering queries
-
             #region
 
             //var customers = Database.GetCustomers().OrderByDescending(x => x.joinDate).ThenBy(x => x.id);
@@ -296,7 +294,130 @@ namespace Home
             #endregion
 
 
-            // LINQ Immediate execution methods
+            // LINQ Immediate execution methods (First,Last,First or Default,Last or Default)
+            #region
+
+            //var customer = Database.GetCustomers().OrderBy(x => x.joinDate).ThenByDescending(x => x.id).First();
+
+            //var customer = (from o in Database.GetCustomers()
+            //                orderby o.joinDate , o.id descending
+            //                select o).First();
+
+            //var customer =  Database.GetCustomers().OrderBy(x=>x.id).First(x=>x.age>35);
+
+            //var customer = Database.GetCustomers().OrderBy(x => x.joinDate).ThenByDescending(x => x.id).Last();
+
+
+            //var customer = (from o in Database.GetCustomers()
+            //                orderby o.joinDate, o.id descending
+            //                select o).Last();
+
+
+
+
+
+
+            //Console.WriteLine(customer.name);
+
+
+            // First 
+
+            //try
+            //{
+            //    var order = Database.GetOrders().First();
+
+            //    if (order!=null)
+            //    {
+            //        Console.WriteLine(order.total);
+            //    }
+            //}
+            //catch (Exception ex) { 
+            //    Console.WriteLine(ex.Message);
+            //}
+
+
+            // First or Default
+
+            //var order = Database.GetOrders().FirstOrDefault();
+
+            //if (order != null)
+            //{
+            //    Console.WriteLine(order.total);
+            //}
+
+
+            #endregion
+
+
+            //some LINQ Opreators
+
+            #region
+
+            //var customer = Database.GetCustomers().ElementAt(700);
+
+            //var customer = Database.GetCustomers().ElementAtOrDefault(700);
+
+
+            //var customer = Database.GetCustomers().Single(x=>x.age==32);
+
+            //var customer = Database.GetCustomers().SingleOrDefault(x=>x.age==30);
+
+            //if (customer != null)
+            //{
+            //    Console.WriteLine(customer.name);
+            //}
+
+
+
+            //if (customer != null) {
+            //    Console.WriteLine(customer.name);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No Data Found");
+            //}
+
+
+            //var customerscount=Database.GetCustomers().Count();
+
+            //var customerscount = Database.GetCustomers().Count(x=>x.age>30);
+
+
+            //var customersmax = Database.GetCustomers().Max(x=>x.age);
+
+            //var customersmax = Database.GetCustomers().Max();
+
+            //var customeraverage = Database.GetCustomers().Average(x => x.spendAverage);
+
+            //Console.WriteLine(Math.Round(customeraverage,2));
+
+
+            //var customersum = Database.GetCustomers().Sum(x => x.spendAverage);
+
+            //Console.WriteLine(customersum);
+
+
+            #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

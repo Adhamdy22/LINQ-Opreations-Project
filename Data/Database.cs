@@ -1,5 +1,6 @@
 ﻿
 using Data.Models.Customers;
+using Data.Models.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace Data
             customers.Add(new Customer { id = 110, name = "samy tony", age = 29, isActive = true, joinDate = new DateTime(2023, 8, 18), categoryId = 1, spendAverage = 1854.9m, telephone = 122222289 });
             customers.Add(new Customer { id = 111, name = "ahmed galal", age = 37, isActive = true, joinDate = new DateTime(2023, 7, 12), categoryId = 2, spendAverage = 9632.2m, telephone = 123333339 });
             return customers;
+        }
+
+        public static List<Order> GetOrders()
+        {
+            List<Order> orders = new List<Order>();
+            return orders;
         }
     }
 }
