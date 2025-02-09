@@ -350,7 +350,6 @@ namespace Home
 
 
             //some LINQ Opreators
-
             #region
 
             //var customer = Database.GetCustomers().ElementAt(700);
@@ -398,6 +397,12 @@ namespace Home
 
 
             #endregion
+
+
+            // 
+
+
+
 
 
 
