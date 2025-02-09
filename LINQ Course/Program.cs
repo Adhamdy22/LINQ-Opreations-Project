@@ -399,7 +399,183 @@ namespace Home
             #endregion
 
 
-            // 
+            // Using JOIN Operator in inner relationship
+            #region
+
+            // one to many relation ( Method Syntax ) 
+
+            // var categories = Database.GetCategories();
+            //var customers = Database.GetCustomers();
+
+            //var result = categories.Join
+            //    (
+            //    customers
+            //    , cat=>cat.Id
+            //    , cust => cust.categoryId
+            //    , (categories,customers) => new
+            //    {
+            //        fullname = customers.name,
+            //        categoryname = categories.Name,
+            //    }
+
+            //);
+
+
+            //foreach (var item in result) {
+            //    Console.WriteLine(item);
+            //}
+
+
+
+            // one to many relation ( Query Syntax ) 
+
+            //var result = from cat in categories
+            //             join cust in customers
+            //             on cat.Id equals cust.categoryId
+            //             select new
+            //             {
+            //                 fullname = cust.name,
+            //                 categoryname = cat.Name,
+            //             };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+
+            //Left or right outer join query in Linq
+            #region
+
+            //var categories = Database.GetCategories();
+            //var customers = Database.GetCustomers();
+
+            // Method Syntax 
+
+            // left join
+
+            //var result = categories.GroupJoin
+            //    (
+            //    customers
+            //    , cat => cat.Id
+            //    , cust => cust.categoryId
+            //    , (categories, customers) => new
+            //    {
+            //        Customers = customers,
+            //        categoryname = categories.Name,
+            //    }
+
+            //);
+
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine("----------------------------------------------------------------------");
+            //    Console.WriteLine(item.categoryname);
+            //    Console.WriteLine("----------------------------------------------------------------------");
+
+            //    if (item.Customers!=null)
+            //    {
+            //        foreach(var customer in item.Customers)
+            //        {
+            //            Console.WriteLine(customer.name);
+            //        }
+            //    }
+
+            //}
+
+
+            // right join
+
+            //var result = customers.GroupJoin(categories, cust => cust.categoryId, cat => cat.Id, (customers, categories) => new
+            //{
+            //    Mycategories= categories,
+            //    customername= customers.name,
+            //});
+
+            //foreach (var item in result) {
+            //    Console.WriteLine("----------------------------------------------------------------------");
+            //    Console.WriteLine(item.customername);
+
+
+            //    if (item.Mycategories != null)
+            //    {
+            //        foreach (var category in item.Mycategories)
+            //        {
+            //            Console.WriteLine(category.Name);
+            //        }
+            //    }
+
+
+            //}
+
+
+            // Query Syntax
+
+            // ( Left Join)
+
+            //var result = from cat in categories
+            //             join cust in customers
+            //             on cat.Id equals cust.categoryId
+            //             into mycustomers
+            //             select new
+            //             {
+            //                 MyCustomers = mycustomers,
+            //                 categoryname = cat.Name,
+            //             };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine("----------------------------------------------------------------------");
+            //    Console.WriteLine(item.categoryname);
+            //    Console.WriteLine("----------------------------------------------------------------------");
+
+            //    if (item.MyCustomers!=null)
+            //    {
+            //        foreach (var customer in item.MyCustomers)
+            //        {
+            //            Console.WriteLine(customer.name);
+            //        }
+            //    }
+
+            //}
+
+
+            // (Right Join)
+
+            //  var result = from cust in customers
+            //               join cat in categories
+            //               on cust.categoryId equals cat.Id
+            //               into mycategories
+            //               select new
+            //               {
+            //                   Categories = mycategories,
+            //                   Customer = cust.name
+            //               };
+
+            //foreach (var item in result)
+            //  {
+            //      Console.WriteLine("----------------------------------------------------------------------");
+            //      Console.WriteLine(item.Customer);
+
+
+            //      if (item.Categories != null)
+            //      {
+            //          foreach (var category in item.Categories)
+            //          {
+            //              Console.WriteLine(category.Name);
+            //          }
+            //      }
+
+
+            //  }
+
+
+            #endregion
+
+
 
 
 

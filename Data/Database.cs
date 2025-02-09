@@ -15,7 +15,8 @@ namespace Data
         {
             List<CustomerCategory> categories = new List<CustomerCategory>();
             categories.Add(new CustomerCategory() { Id = 1, Name = "normal" });
-            categories.Add(new CustomerCategory() { Id = 1, Name = "VIP" });
+            categories.Add(new CustomerCategory() { Id = 2, Name = "VIP" });
+            categories.Add(new CustomerCategory() { Id = 3, Name = "Blocked" });
             return categories;
         }
 
@@ -33,6 +34,7 @@ namespace Data
             customers.Add(new Customer { id = 109, name = "nora hazem", age = 25, isActive = false, joinDate = new DateTime(2023, 10, 31), categoryId = 1, spendAverage = 1250.6m, telephone = 121111189 });
             customers.Add(new Customer { id = 110, name = "samy tony", age = 29, isActive = true, joinDate = new DateTime(2023, 8, 18), categoryId = 1, spendAverage = 1854.9m, telephone = 122222289 });
             customers.Add(new Customer { id = 111, name = "ahmed galal", age = 37, isActive = true, joinDate = new DateTime(2023, 7, 12), categoryId = 2, spendAverage = 9632.2m, telephone = 123333339 });
+            customers.Add(new Customer { id = 111, name = "invalid", age = 37, isActive = true, joinDate = new DateTime(2023, 7, 12), categoryId = 4, spendAverage = 9632.2m, telephone = 123333339 });
             return customers;
         }
 
