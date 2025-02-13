@@ -576,6 +576,89 @@ namespace Home
             #endregion
 
 
+            //GroupBy & ToLookup Linq Operators
+            #region
+            //var customers= Database.GetCustomers();
+            //var categories = Database.GetCategories();
+
+            //Method Syntax (Groupby and lookup)
+
+            //var result1 = customers.GroupBy(c=>c.categoryId).ToList(); // Deffered 
+            //var result2 = customers.ToLookup(c=>c.categoryId).ToList(); // immediate
+
+            //foreach (var category in result) {
+            //    Console.WriteLine("Category Key "+category.Key);
+            //    foreach (var customer in category) { 
+            //        Console.WriteLine("Name : "+" "+customer.name);
+            //    }
+            //}
+
+
+            //Query Syntax (Groupby and lookup)
+
+            //var result1 = from c in customers
+            //             group c by c.categoryId;
+
+            //var result2 = (
+            //    from c in customers
+            //    select c
+            //    ).ToLookup(c=>c.categoryId);
+
+            //foreach (var category in result)
+            //{
+            //    Console.WriteLine("Category Key "+category.Key);
+            //    foreach (var customer in category)
+            //    {
+            //        Console.WriteLine("Name : "+" "+customer.name);
+            //    }
+            //}
+
+
+
+
+
+
+            #endregion
+
+
+            // Generator operators in Linq
+            #region
+
+            //var r = Enumerable.Range(1, 1000);
+
+            //var e = Enumerable.Empty<Customer>();
+
+            //var rep = Enumerable.Repeat(100, 4);
+
+            //var cust = Database.GetCustomers().FirstOrDefault();
+            //var rep2 = Enumerable.Repeat(cust, 4);
+
+            ////====================================
+
+            //List<string> names = new List<string>()
+            //{ "Ahmed Moahamdy", "Mohamed Salah", "alaa khaled"};
+
+            //var sm = names.SelectMany(element => element.Split(' '));
+
+            //foreach (var name in sm)
+            //    Console.WriteLine(name);
+
+            //var smq = from n in names
+            //          from ns in n.Split(" ")
+            //          select ns;
+
+            //foreach (var name in smq)
+            //    Console.WriteLine(name);
+
+
+
+            #endregion
+
+
+
+
+
+
 
 
 
