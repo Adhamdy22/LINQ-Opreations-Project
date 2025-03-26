@@ -16,11 +16,24 @@ using Data;
 using Data.Models.Customers;
 using Data.ViewModels;
 using LINQ_Course.Extensions;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 
 namespace Home
 {
+    public class CustCompar : IEqualityComparer<Customer>
+    {
+        public bool Equals(Customer? x, Customer? y)
+        {
+            return x.id == y.id;
+        }
+
+        public int GetHashCode([DisallowNull] Customer obj)
+        {
+            return obj.id.GetHashCode();
+        }
+    }
     public class Program
     {
 
@@ -84,8 +97,6 @@ namespace Home
             #endregion
 
 
-
-
             // without extension method
             #region
             //var nameslist = Filter.GetAhmed();
@@ -105,11 +116,6 @@ namespace Home
             //}
 
             #endregion
-
-
-
-
-
 
 
             // where linq
@@ -654,63 +660,55 @@ namespace Home
 
             #endregion
 
+            //Set & Casting Operators
+            #region
+            //var result = Database.GetCustomers()
+            //    .Where(x => x.categoryId==1)
+            //    .ToList();
+            //    .ToArray();
+            //    .ToDictionary(x => x.categoryId);
+
+            //var l1 = Enumerable.Range(0, 10);
+            //var l2 = Enumerable.Range(5, 15);
+
+            ////var result = l1.Union(l2);
+
+            ////var result = l1.Concat(l2);
+            ////result=result.Distinct();
+
+            ////var result = l1.Except(l2);
+            //var result = l1.Intersect(l2);
+
+            //foreach (var x in result) {
+            //    Console.WriteLine(x);
+            //}
 
 
+            #endregion
+
+            // Quantifier operations
+            #region
+
+            // Check All
+
+            //var result = Database.GetCustomers().All(x => x.age>15);
+            //Console.WriteLine(result.ToString());
+
+            // Check If Exists
+
+            //var result = Database.GetCustomers().Any(x=>x.name.Contains("mazen"));
+            //Console.WriteLine(result.ToString());
 
 
+            //var cust = new Customer { id = 101, name = "ahmed mohmed", age = 30, isActive = true, joinDate = new DateTime(2022, 10, 15), categoryId = 1, spendAverage = 1500.9m, telephone = 123456789 };
 
+            //var isContAge = Database.GetCustomers().Contains(cust, new CustCompar());
+            //Console.WriteLine(isContAge.ToString());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            #endregion
 
 
         }
 
-
-
-
-
-
-
     }
-    
 }

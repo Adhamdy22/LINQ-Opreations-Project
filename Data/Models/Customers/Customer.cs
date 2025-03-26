@@ -14,6 +14,8 @@ namespace Data.Models.Customers
         public int age { get; set; }
         public decimal spendAverage { get; set; }
         public int categoryId { get; set; }
+
+        public virtual CustomerCategory ? category {  get; set; }
         public bool isActive { get; set; }
         public DateTime joinDate { get; set; }
 
