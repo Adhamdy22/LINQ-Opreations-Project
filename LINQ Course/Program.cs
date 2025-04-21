@@ -18,6 +18,7 @@ using Data.ViewModels;
 using LINQ_Course.Extensions;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 
 namespace Home
@@ -706,6 +707,108 @@ namespace Home
             //Console.WriteLine(isContAge.ToString());
 
             #endregion
+
+            // More LINQ Operators
+            #region
+
+            //var customers = Database.GetCustomers().Select(x=>x.name);
+
+            //var customers = Database.GetCustomers();
+
+            //var nums = Enumerable.Range(0, customers.Count());
+
+            //var result = customers.Zip(nums, (c, i) => new {i,c.name});
+
+            //foreach (var items in result)
+            //{
+            //    Console.WriteLine(items.i+":"+items.name);
+            //}
+
+            //var L1 = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
+            //var L2 = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
+            //var result3 = L1.SequenceEqual(L2);
+            //Console.WriteLine(result3);
+
+            //var custList1 = Database.GetCustomers();
+            //var custList2 = Database.GetCustomers();
+
+            //var result4 = custList1.SequenceEqual(custList2);
+            //Console.WriteLine(result4);
+
+            #endregion
+
+            // More LINQ Operators II
+            #region
+            //var data = GetData.GetCustomers().Aggregate<Customer, string, string>
+            //    ("the deserve discounts : ", (s, e) =>
+            //    {
+            //        var discount = e.spendAverage * 0.5m;
+            //        s = s + $" {e.name} : {discount} ,";
+            //        return s;
+            //    }, o => o.Replace(":", "->").Substring(0, o.Length - 2));
+
+            //Console.WriteLine(data);
+
+            //List<int> list = new List<int>();
+
+            //var list = Database.GetCategories(); 
+            ////var list = new List<CustomerCategory>();
+
+            //var reslut = list.DefaultIfEmpty(new CustomerCategory() { Id = 0, Name = "Null" });
+
+            //foreach (var item in reslut)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+            #endregion
+
+            //Partitioning Operators in Linq
+            #region
+            // Skip
+
+            //var count = Database.GetCustomers().Where(x=>x.age<=20).Count();
+            //var result = Database.GetCustomers().Skip(2);
+            //var result = Database.GetCustomers().Skip(count);
+            //var result = Database.GetCustomers().SkipWhile(x => x.age<30);
+            //var result = Database.GetCustomers().SkipLast(5);
+
+            //Take
+            //var count = Database.GetCustomers().Where(x=>x.age<=30).Count();
+            //var result = Database.GetCustomers().Take(2);
+            //var result = Database.GetCustomers().Take(count);
+            //var result = Database.GetCustomers().TakeWhile(x => x.age<=30);
+            //var result = Database.GetCustomers().TakeLast(5);
+
+            //foreach (var customer in result)
+            //{
+            //    Console.WriteLine(customer.id+":"+customer.name+":"+customer.age);
+            //}
+            #endregion
+
+            //Let and Into Keywords
+            #region
+//            List<string> names = new List<string>()
+//{ "@hmed" , "Mo&ed", "3alah"  };
+
+//            //var Result = from n in names
+//            //             select Regex.Replace(n, "[@&3]", "_")
+//            //             into newVal
+//            //             where newVal.ToLower().Contains("m")
+//            //             orderby newVal.Length
+//            //             select newVal;
+
+//            var Result = from n in names
+//                         let newVal = Regex.Replace(n, "[@&3]", "_")
+//                         where newVal.ToLower().Contains("m")
+//                         orderby newVal.Length, n.Length
+//                         select newVal;
+
+//            foreach (var name in Result)
+//                Console.WriteLine(name);
+
+            #endregion
+
+
 
 
         }
